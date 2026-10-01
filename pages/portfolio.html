@@ -3,152 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio & Lanzamientos | Leo_Frixi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Portfolio & RVC - Leo_Frixi</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 </head>
-<script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.artist-btn');
-            const panels = document.querySelectorAll('.feature-panel');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remover estado activo de todos los botones
-                    buttons.forEach(btn => {
-                        btn.style.border = '1px solid rgba(0, 255, 204, 0.2)';
-                        btn.style.background = 'rgba(15, 25, 20, 0.6)';
-                        btn.classList.remove('active');
-                    });
-
-                    // Activar el botón cliqueado
-                    button.style.border = '1px solid #00ffcc';
-                    button.style.background = 'rgba(15, 25, 20, 0.8)';
-                    button.classList.add('active');
-
-                    // Ocultar todos los paneles de información
-                    panels.forEach(panel => {
-                        panel.style.display = 'none';
-                        panel.classList.remove('active');
-                    });
-
-                    // Mostrar el panel correspondiente
-                    const targetId = button.getAttribute('data-feature');
-                    const targetPanel = document.getElementById(targetId);
-                    if (targetPanel) {
-                        targetPanel.style.display = 'block';
-                        targetPanel.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
-    <script src="../js/script.js"></script>
 <body>
     <div class="bio-bg"></div>
-    <div class="particle-system" id="particleSystem"></div>
 
-    <header>
-        <nav id="navbar">
-            <div class="nav-container" style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;">
-                <a href="../index.html" class="logo">
-                    <span class="logo-text">Leo_Frixi's Shell</span>
-                </a>
-                <ul class="nav-menu" id="navMenu" style="display: flex; gap: 1.5rem; list-style: none;">
-                    <li><a href="../index.html" class="nav-link">Inicio</a></li>
-                    <li><a href="portfolio.html" class="nav-link active">Portfolio & RVC</a></li>
-                    <li><a href="about.html" class="nav-link">Sobre Mí</a></li>
-                    <li><a href="contact.html" class="nav-link">Contacto</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <main style="position: relative !important; top: 0 !important; left: 0 !important; transform: none !important; margin: 140px auto 60px auto !important; max-width: 1100px !important; width: 100% !important; padding: 0 1rem !important; box-sizing: border-box !important;">
-        <h2 style="text-align: center; margin-bottom: 2.5rem; color: #00ffcc; font-size: 2rem; font-family: 'Space Grotesk', sans-serif;">Colaboraciones & Lanzamientos</h2>
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">Leo_Frixi's Shell</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio & RVC</a></li>
+                <li><a href="../index.html#sobre-mi">Sobre Mí</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="portfolio-main">
+        <h2 class="portfolio-title">Colaboraciones & Lanzamientos</h2>
         
-        <div style="display: flex !important; flex-direction: row !important; gap: 2rem !important; align-items: flex-start !important; width: 100% !important; box-sizing: border-box !important; position: relative !important; transform: none !important; left: 0 !important;">
-            
-            <!-- Columna Izquierda: Botones de creadores -->
-            <nav style="display: flex !important; flex-direction: column !important; gap: 1rem !important; width: 320px !important; min-width: 320px !important; flex-shrink: 0 !important; position: relative !important; transform: none !important;">
-                
-                <button type="button" class="artist-btn active" data-feature="devega" style="display: flex !important; align-items: flex-start !important; gap: 0.8rem !important; width: 100% !important; text-align: left !important; padding: 1rem !important; background: rgba(15, 25, 20, 0.8) !important; border: 1px solid #00ffcc !important; border-radius: 8px !important; color: #fff !important; cursor: pointer !important; box-sizing: border-box !important;">
-                    <span style="font-size: 1.2rem;">🎙</span>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; color: #00ffcc; font-size: 1rem;">De Vega</h4>
-                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.3; margin: 4px 0 0 0; white-space: normal;">Creador de canciones IA, su fuerte es imitar a Chencho Corleone</p>
+        <div class="portfolio-container">
+            <!-- Menú Izquierdo -->
+            <div class="artist-nav">
+                <button type="button" class="artist-btn active" data-feature="rawleaks">
+                    <span class="artist-icon">🎧</span>
+                    <div class="artist-info">
+                        <h4>RawleaksTV</h4>
+                        <p>Especializado en música IA de la industria estadounidense (Más que nada King Von)</p>
                     </div>
                 </button>
 
-                <button type="button" class="artist-btn" data-feature="rawleaks" style="display: flex !important; align-items: flex-start !important; gap: 0.8rem !important; width: 100% !important; text-align: left !important; padding: 1rem !important; background: rgba(15, 25, 20, 0.6) !important; border: 1px solid rgba(0, 255, 204, 0.2) !important; border-radius: 8px !important; color: #fff !important; cursor: pointer !important; box-sizing: border-box !important;">
-                    <span style="font-size: 1.2rem;">🎧</span>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; color: #00ffcc; font-size: 1rem;">RawleaksTV</h4>
-                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.3; margin: 4px 0 0 0; white-space: normal;">Especializado en musica IA de la industria estadounidense</p>
+                <button type="button" class="artist-btn" data-feature="ng">
+                    <span class="artist-icon">⚡</span>
+                    <div class="artist-info">
+                        <h4>NG (Proodbyng)</h4>
+                        <p>Escritor y creador, actualmente firmado en Moneywayy</p>
                     </div>
                 </button>
 
-                <button type="button" class="artist-btn" data-feature="ng" style="display: flex !important; align-items: flex-start !important; gap: 0.8rem !important; width: 100% !important; text-align: left !important; padding: 1rem !important; background: rgba(15, 25, 20, 0.6) !important; border: 1px solid rgba(0, 255, 204, 0.2) !important; border-radius: 8px !important; color: #fff !important; cursor: pointer !important; box-sizing: border-box !important;">
-                    <span style="font-size: 1.2rem;">⚡</span>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; color: #00ffcc; font-size: 1rem;">NG (Proodbyng)</h4>
-                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.3; margin: 4px 0 0 0; white-space: normal;">Escritor y creador, actualmente firmado en Moneywayy</p>
+                <button type="button" class="artist-btn" data-feature="d4n">
+                    <span class="artist-icon">🎛</span>
+                    <div class="artist-info">
+                        <h4>D4N-AI</h4>
+                        <p>Creador de canciones IA, su fuerte es imitación de Anuel AA y varios otros artistas</p>
                     </div>
                 </button>
 
-                <button type="button" class="artist-btn" data-feature="d4n" style="display: flex !important; align-items: flex-start !important; gap: 0.8rem !important; width: 100% !important; text-align: left !important; padding: 1rem !important; background: rgba(15, 25, 20, 0.6) !important; border: 1px solid rgba(0, 255, 204, 0.2) !important; border-radius: 8px !important; color: #fff !important; cursor: pointer !important; box-sizing: border-box !important;">
-                    <span style="font-size: 1.2rem;">🎛️️</span>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; color: #00ffcc; font-size: 1rem;">D4N-AI</h4>
-                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.3; margin: 4px 0 0 0; white-space: normal;">Creador de canciones IA, su fuerte es imitación de Anuel AA y varios otros artistas</p>
+                <button type="button" class="artist-btn" data-feature="jhayy">
+                    <span class="artist-icon">🎹</span>
+                    <div class="artist-info">
+                        <h4>Prodbyjhayy</h4>
+                        <p>Creador de canciones IA, su fuerte es imitación de ROA, Hanzel La H y Hades 66</p>
                     </div>
                 </button>
+            </div>
 
-                <button type="button" class="artist-btn" data-feature="jhayy" style="display: flex !important; align-items: flex-start !important; gap: 0.8rem !important; width: 100% !important; text-align: left !important; padding: 1rem !important; background: rgba(15, 25, 20, 0.6) !important; border: 1px solid rgba(0, 255, 204, 0.2) !important; border-radius: 8px !important; color: #fff !important; cursor: pointer !important; box-sizing: border-box !important;">
-                    <span style="font-size: 1.2rem;">🎹</span>
-                    <div style="flex: 1;">
-                        <h4 style="margin: 0; color: #00ffcc; font-size: 1rem;">Prodbyjhayy</h4>
-                        <p style="font-size: 0.8rem; opacity: 0.8; line-height: 1.3; margin: 4px 0 0 0; white-space: normal;">Creador de canciones IA, su fuerte es imitación de ROA, Hanzel La H y Hades 66</p>
-                    </div>
-                </button>
-
-            </nav>
-
-            <!-- Columna Derecha: Contenido del creador activo -->
-            <div style="flex: 1 !important; background: rgba(15, 25, 20, 0.8) !important; border: 1px solid rgba(0, 255, 204, 0.3) !important; border-radius: 12px !important; padding: 2rem !important; min-height: 300px !important; box-sizing: border-box !important; position: relative !important;">
-                <article class="feature-panel active" id="devega">
-                    <h3 style="color: #00ffcc; margin-top: 0;">Colaboración con De Vega</h3>
-                    <p>Desarrollo de modelos RVC v2 y soporte técnico de audio para sus lanzamientos.</p>
-                </article>
-
-                <article class="feature-panel" id="rawleaks">
-                    <h3 style="color: #00ffcc; margin-top: 0;">Trabajos con rawleaks</h3>
-                    <p>Inferencia vocal y limpieza de datasets para producciones continuas.</p>
-                </article>
-
-                <article class="feature-panel" id="ng">
-                    <h3 style="color: #00ffcc; margin-top: 0;">Modelos para NG</h3>
-                    <p>Aislamiento de voz en Audacity e higienización para conversión limpia sin ruido de fondo.</p>
-                </article>
-
-                <article class="feature-panel" id="d4n">
-                    <h3 style="color: #00ffcc; margin-top: 0;">Proyectos con d4n</h3>
-                    <p>Archivos <code>.pth</code> e <code>.index</code> configurados para flujo de trabajo en estudio.</p>
-                </article>
-
-                <article class="feature-panel" id="jhayy">
-                    <h3 style="color: #00ffcc; margin-top: 0;">Colaboración con Prodbyjhayy</h3>
-                    <p>Calibración de voces sintéticas acopladas a instrumentales musicales.</p>
-                </article>
+            <!-- Columna Derecha: Contenido del Creador Activo -->
+<div class="feature-display">
+    <!-- RawleaksTV -->
+    <article class="feature-panel active" id="rawleaks">
+        <h3>Trabajos con RawleaksTV</h3>
+        <p>Inferencia vocal y limpieza de datasets para producciones continuas.</p>
+        
+        <div class="video-column-list">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/sCNw5Wj5JGM?si=AgNxFE26bk19gPUa" title="Vídeo 1 RawleaksTV" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/5k8Fff4sVDM?si=MXKWEJ03D0dM1obH" title="Vídeo 2 RawleaksTV" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/lJjnBMjGBTo?si=vDYpaOyKxeP3x2lV" title="Vídeo 3 RawleaksTV" allowfullscreen></iframe>
             </div>
         </div>
+    </article>
+
+    <!-- NG -->
+    <article class="feature-panel" id="ng">
+        <h3>Modelos para NG</h3>
+        <p>Aislamiento de voz en Audacity e higienización para conversión limpia sin ruido de fondo.</p>
+        
+        <div class="video-column-list">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VKokfD2r054?si=0Ctt7Zc9tQnooflO" title="Vídeo 1 NG" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/mTY7UoPUB8Q?si=g_TXCO8U_UPjngBT" title="Vídeo 2 NG" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/4-kFvZH7q-c?si=fKfml7ilTzF_2QUt" title="Vídeo 3 NG" allowfullscreen></iframe>
+            </div>
+        </div>
+    </article>
+
+    <!-- D4N -->
+    <article class="feature-panel" id="d4n">
+        <h3>Proyectos con d4n</h3>
+        <p>Archivos <code>.pth</code> e <code>.index</code> configurados para flujo de trabajo en estudio.</p>
+        
+        <div class="video-column-list">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IxFQ9B20cfQ?si=PacLFqHYNcLjKkCO" title="Vídeo 1 d4n" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Jf4Nbc2cEj8?si=C0qqy_WOHSA8MEoq" title="Vídeo 2 d4n" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/0qiHaJtSRUc?si=BqTIA0Ypq7mMzmuD" title="Vídeo 3 d4n" allowfullscreen></iframe>
+            </div>
+        </div>
+    </article>
+
+    <!-- Prodbyjhayy -->
+    <article class="feature-panel" id="jhayy">
+        <h3>Colaboración con Prodbyjhayy</h3>
+        <p>Calibración de voces sintéticas acopladas a instrumentales musicales.</p>
+        
+        <div class="video-column-list">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/Kls4cNlBYt4?si=Z1cRb5F6RTzFcVbv" title="Vídeo 1 Prodbyjhayy" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/yee88OMiNpw?si=fqytOJrn4rlGWDMg" title="Vídeo 2 Prodbyjhayy" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/0sIRWpR1fRI?si=FOlt4rY8h3HUu1NN" title="Vídeo 3 Prodbyjhayy" allowfullscreen></iframe>
+            </div>
+        </div>
+    </article>
+</div>
     </main>
 
     <footer>
-        <div class="footer-bottom">
-            <p>© 2026 Leo_Frixi. All rights reserved.</p>
-        </div>
+        <p>&copy; 2026 Leo_Frixi. All rights reserved.</p>
     </footer>
 
-    <script src="../js/script.js"></script>
+    <!-- Script para cambiar de pestaña -->
+    <script>
+        document.querySelectorAll('.artist-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.artist-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.feature-panel').forEach(p => p.classList.remove('active'));
+                
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-feature');
+                const targetPanel = document.getElementById(targetId);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
