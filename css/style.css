@@ -316,6 +316,7 @@ nav {
 	font-family: 'Space Grotesk', sans-serif;
 	background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
 	-webkit-background-clip: text;
+	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
 
