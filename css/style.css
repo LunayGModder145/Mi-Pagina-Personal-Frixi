@@ -1,8 +1,16 @@
+/* ============================================= */
+/*  🧹 RESETEO Y NORMALIZACIÓN                   */
+/* ============================================= */
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
+
+/* ============================================= */
+/*  🎨 VARIABLES Y CONFIGURACIONES GLOBALES      */
+/* ============================================= */
 
 :root {
 	--primary-green: #00ff88;
@@ -14,6 +22,10 @@
 	--glow-green: rgba(0, 255, 136, 0.3);
 	--glow-blue: rgba(0, 212, 255, 0.3);
 }
+
+/* ============================================= */
+/*  📐 LAYOUT GENERAL                            */
+/* ============================================= */
 
 body {
 	font-family: 'Inter', sans-serif;
@@ -30,6 +42,11 @@ main {
 	flex: 1;
 	width: 100%;
 }
+
+/* ============================================= */
+/*  ✨ FONDO Y EFECTOS VISUALES                  */
+/* ============================================= */
+
 
 .bio-bg {
 	position: fixed;
@@ -67,6 +84,10 @@ main {
 	90% { opacity: 1; transform: translateY(10vh) scale(1); }
 	100% { transform: translateY(-10vh) scale(0); opacity: 0; }
 }
+
+/* ============================================= */
+/*  🧭 NAVEGACIÓN                                */
+/* ============================================= */
 
 nav {
 	position: fixed;
@@ -126,6 +147,10 @@ nav {
 	background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
 }
 
+/* ============================================= */
+/*  🏠 SECCIÓN HERO (INICIO)                     */
+/* ============================================= */
+
 .hero {
 	min-height: 100vh;
 	display: flex;
@@ -164,6 +189,10 @@ nav {
 	display: flex;
 	gap: 20px;
 }
+
+/* ============================================= */
+/*  🔘 BOTONES                                   */
+/* ============================================= */
 
 .btn {
 	padding: 16px 32px;
@@ -228,6 +257,10 @@ nav {
 	35%, 100% { opacity: 0; transform: translateY(-12px); }
 }
 
+/* ============================================= */
+/*  📊 ESTADÍSTICAS                              */
+/* ============================================= */
+
 .stats {
 	padding: 80px 40px;
 	background: rgba(0, 255, 136, 0.05);
@@ -250,11 +283,9 @@ nav {
 	color: var(--primary-green);
 }
 
-.features {
-	padding: 120px 40px;
-	max-width: 1400px;
-	margin: 0 auto;
-}
+/* ============================================= */
+/*  🔤 TÍTULOS DE SECCIÓN                        */
+/* ============================================= */
 
 .section-title {
 	font-family: 'Space Grotesk', sans-serif;
@@ -265,29 +296,7 @@ nav {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-
-.features-showcase {
-	display: grid;
-	grid-template-columns: 400px 1fr;
-	gap: 60px;
-}
-
-.nav-item {
-	display: flex;
-	align-items: center;
-	gap: 20px;
-	padding: 20px;
-	margin-bottom: 12px;
-	border-radius: 16px;
-	cursor: pointer;
-	border: 1px solid rgba(0, 255, 136, 0.2);
-	background: rgba(255, 255, 255, 0.03);
-}
-
-.nav-item.active {
-	background: linear-gradient(135deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.1));
-	border-color: var(--primary-green);
-}
+ 
 
 /* ========================================= */
 /*  🎧 PORTFOLIO & SECCIÓN DE CREADORES      */
@@ -373,7 +382,7 @@ nav {
 	line-height: 1.35;
 }
 
-/* Lista vertical de vídeos por colaborador */
+/* Lista vertical de vídeos por creador */
 .video-column-list {
 	display: flex;
 	flex-direction: column;
@@ -432,6 +441,10 @@ nav {
 	color: rgba(255, 255, 255, 0.85);
 	line-height: 1.6;
 }
+
+/* ============================================= */
+/*  👤 SOBRE MÍ (BIOGRAFÍA)                      */
+/* ============================================= */
 
 .about, .contact {
 	padding: 120px 40px;
@@ -502,6 +515,10 @@ nav {
 	font-size: 1.2rem;
 }
 
+/* ============================================= */
+/*  📩 CONTACTO Y FORMULARIO                     */
+/* ============================================= */
+
 .contact-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
@@ -545,12 +562,20 @@ nav {
 	cursor: pointer;
 }
 
+/* ============================================= */
+/*  🦶 PIE DE PÁGINA                             */
+/* ============================================= */
+
 footer {
 	background: var(--deep-forest);
 	border-top: 1px solid rgba(0, 255, 136, 0.2);
 	padding: 30px;
 	text-align: center;
 }
+
+/* ============================================= */
+/*  🌐 REDES SOCIALES                            */
+/* ============================================= */
 
 .contact-info h2 {
 	font-family: 'Space Grotesk', sans-serif;
@@ -619,6 +644,10 @@ a.social-card:focus-visible {
 	font-size: 0.9rem;
 	color: rgba(255, 255, 255, 0.7);
 }
+
+/* ============================================= */
+/*  📱 RESPONSIVE (MÓVIL)                        */
+/* ============================================= */
 
 @media (max-width: 768px) {
 	.hero-content, .features-showcase, .contact-container, .portfolio-container, .about-content {
