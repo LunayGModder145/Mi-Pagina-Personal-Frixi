@@ -567,6 +567,29 @@ a.artist-btn {
 	cursor: pointer;
 }
 
+.submit-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+.honeypot {
+	display: none;
+}
+
+.form-status {
+	margin-top: 16px;
+	min-height: 1.4em;
+	text-align: center;
+}
+
+.form-status.ok {
+	color: var(--primary-green);
+}
+
+.form-status.error {
+	color: #ff6b6b;
+}
+
 /* ============================================= */
 /*  🦶 PIE DE PÁGINA                             */
 /* ============================================= */

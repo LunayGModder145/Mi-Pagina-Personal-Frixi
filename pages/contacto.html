@@ -32,7 +32,7 @@
         <div class="contact-container">
             <div class="contact-form">
                 <h1 class="section-title" style="text-align: left; margin-bottom: 40px; font-size: 2.5rem;">Trabajemos Juntos</h1>
-                <form id="contactForm">
+                <form id="contactForm" action="https://formspree.io/f/mrpbndrv" method="POST">
                     <div class="form-group">
                         <label for="name">Nombre / Creador</label>
                         <input type="text" id="name" name="name" required>
@@ -45,7 +45,9 @@
                         <label for="message">Pon Tu Mensaje Aquí</label>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit" class="submit-btn">⚡ Enviar Mensaje</button>
+                    <input type="text" name="_gotcha" class="honeypot" tabindex="-1" autocomplete="off">
+                    <button type="submit" class="submit-btn">✉️ Enviar Mensaje</button>
+                    <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
             </div>
 

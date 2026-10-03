@@ -33,7 +33,46 @@ function initializeFeatures() {
    });
 }
 
+function initializeContactForm() {
+   // Buscamos el formulario, el hueco del aviso y el botón
+   const form = document.getElementById('contactForm');
+   if (!form) return; // Si esta página no tiene formulario, no hacemos nada
+
+   const status = document.getElementById('formStatus');
+   const button = form.querySelector('button[type="submit"]');
+
+   form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Evita que la página se recargue al enviar
+      button.disabled = true; // Bloquea el botón para que no lo pulsen varias veces
+      status.className = 'form-status';
+      status.textContent = 'Enviando...';
+
+      try {
+         // Mandamos los datos del formulario a Formspree
+         const response = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+         });
+
+         if (!response.ok) throw new Error('Respuesta no válida');
+
+         // Si todo fue bien: vaciamos el formulario y avisamos
+         form.reset();
+         status.textContent = '¡Mensaje enviado! Te responderé pronto.';
+         status.classList.add('ok');
+      } catch (error) {
+         // Si algo falló: avisamos del error
+         status.textContent = 'No se pudo enviar. Inténtalo de nuevo o escríbeme por mis redes.';
+         status.classList.add('error');
+      } finally {
+         button.disabled = false; // Desbloqueamos el botón
+      }
+   });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
    createBioParticles();
    initializeFeatures();
+   initializeContactForm();
 });
