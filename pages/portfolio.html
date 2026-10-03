@@ -63,6 +63,13 @@
                         <p>Creador de canciones IA, su fuerte es imitación de ROA, Hanzel La H y Hades 66</p>
                     </div>
                 </button>
+                <a href="samples.html" class="artist-btn">
+                    <span class="artist-icon">🎙️</span>
+                    <div class="artist-info">
+                        <h4>Samples crudos</h4>
+                        <p>Cómo suenan mis modelos sin efectos, recién salidos de Applio</p>
+                    </div>
+                </a>
             </div>
 
             <!-- Columna Derecha: Contenido del Creador Activo -->
@@ -147,9 +154,9 @@
 
     <!-- Script para cambiar de pestaña -->
     <script>
-        document.querySelectorAll('.artist-btn').forEach(btn => {
+        document.querySelectorAll('button.artist-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.artist-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('button.artist-btn').forEach(b => b.classList.remove('active'));
                 document.querySelectorAll('.feature-panel').forEach(p => p.classList.remove('active'));
                 
                 btn.classList.add('active');
