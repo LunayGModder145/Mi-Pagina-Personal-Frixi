@@ -65,7 +65,7 @@ Portafolio web interactivo y profesional desarrollado como proyecto para la acad
 
 El sitio web está alojado y disponible públicamente a través de GitHub Pages:
 
-* **URL de despliegue:** PENDIENTE
+* **URL de despliegue:** https://lunaygmodder145.github.io/Mi-Pagina-Personal-Frixi/index.html
 
 ## ⚠️ Disclaimer / Aviso Legal
 
