@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Colaboraciones y lanzamientos de Leo Frixi con creadores de música IA.">
     <title>Portfolio &amp; RVC | Leo Frixi's Shell</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link rel="stylesheet" href="../css/style.css">
@@ -12,14 +13,14 @@
     <div class="bio-bg"></div>
 
     <!-- Navegación -->
-    <header><nav>
+    <header><nav id="navbar">
         <div class="nav-container">
             <a href="../index.html" class="logo">
     <span class="logo-text">Leo Frixi's Shell</span>
 </a>
             <ul class="nav-menu">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="portfolio.html" class="active">Portfolio &amp; RVC</a></li>
+                <li><a href="portfolio.html" class="active" aria-current="page">Portfolio &amp; RVC</a></li>
                 <li><a href="biografia.html">Sobre Mí</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
@@ -32,49 +33,49 @@
         
         <div class="portfolio-container">
             <!-- Menú Izquierdo -->
-            <div class="artist-nav">
+            <aside class="artist-nav" aria-label="Creadores">
                 <button type="button" class="artist-btn active" data-feature="rawleaks">
                     <span class="artist-icon">🇺🇸</span>
-                    <div class="artist-info">
-                        <h4>RawleaksTV</h4>
-                        <p>Especializado en música IA de la industria estadounidense (Más que nada la escena de Chicago/Chiraq)</p>
-                    </div>
+                    <span class="artist-info">
+                        <strong class="artist-name">RawleaksTV</strong>
+                        <span class="artist-desc">Especializado en música IA de la industria estadounidense (Más que nada la escena de Chicago/Chiraq)</span>
+                    </span>
                 </button>
 
                 <button type="button" class="artist-btn" data-feature="ng">
                     <span class="artist-icon">🌑</span>
-                    <div class="artist-info">
-                        <h4>NG (Proodbyng)</h4>
-                        <p>Escritor y creador, actualmente firmado en Moneywayy</p>
-                    </div>
+                    <span class="artist-info">
+                        <strong class="artist-name">NG (Proodbyng)</strong>
+                        <span class="artist-desc">Escritor y creador, actualmente firmado en Moneywayy</span>
+                    </span>
                 </button>
 
                 <button type="button" class="artist-btn" data-feature="d4n">
                     <span class="artist-icon">👹</span>
-                    <div class="artist-info">
-                        <h4>D4N-AI</h4>
-                        <p>Productor IA, su fuerte es la creación y recreación de canciones. Tiene gran versatilidad en la escena de Trap 2016 y artistas de la decada pasada.</p>
-                    </div>
+                    <span class="artist-info">
+                        <strong class="artist-name">D4N-AI</strong>
+                        <span class="artist-desc">Productor IA, su fuerte es la creación y recreación de canciones. Tiene gran versatilidad en la escena de Trap 2016 y artistas de la decada pasada.</span>
+                    </span>
                 </button>
 
                 <button type="button" class="artist-btn" data-feature="jhayy">
                     <span class="artist-icon">🇵🇪</span>
-                    <div class="artist-info">
-                        <h4>Prodbyjhayy</h4>
-                        <p>Creador de canciones IA, su fuerte es la escena actual del Detroit y RNB Latino</p>
-                    </div>
+                    <span class="artist-info">
+                        <strong class="artist-name">Prodbyjhayy</strong>
+                        <span class="artist-desc">Creador de canciones IA, su fuerte es la escena actual del Detroit y RNB Latino</span>
+                    </span>
                 </button>
                 <a href="samples.html" class="artist-btn">
                     <span class="artist-icon">🎙️</span>
-                    <div class="artist-info">
-                        <h4>Samples crudos</h4>
-                        <p>Cómo suenan mis modelos sin efectos, recién salidos de Applio</p>
-                    </div>
+                    <span class="artist-info">
+                        <strong class="artist-name">Samples Crudos</strong>
+                        <span class="artist-desc">Cómo suenan mis modelos sin efectos, recién salidos de Applio</span>
+                    </span>
                 </a>
-            </div>
+            </aside>
 
             <!-- Columna Derecha: Contenido del Creador Activo -->
-<div class="feature-display">
+<section class="feature-display" aria-label="Lanzamientos del creador seleccionado">
     <!-- RawleaksTV -->
     <article class="feature-panel active" id="rawleaks">
         <h2>Lanzamientos con RawleaksTV</h2>
@@ -146,29 +147,14 @@
             </div>
         </div>
     </article>
-</div>
+</section>
         </div>
     </main>
 
     <footer>
-        <p>© 2026 Leo Frixi's Shell. All rights reserved.</p>
+        <p><small>© 2026 Leo Frixi's Shell. All rights reserved.</small></p>
     </footer>
 
-    <!-- Script para cambiar de pestaña -->
-    <script>
-        document.querySelectorAll('button.artist-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('button.artist-btn').forEach(b => b.classList.remove('active'));
-                document.querySelectorAll('.feature-panel').forEach(p => p.classList.remove('active'));
-                
-                btn.classList.add('active');
-                const targetId = btn.getAttribute('data-feature');
-                const targetPanel = document.getElementById(targetId);
-                if (targetPanel) {
-                    targetPanel.classList.add('active');
-                }
-            });
-        });
-    </script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

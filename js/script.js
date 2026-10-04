@@ -1,8 +1,15 @@
+/* ============================================= */
+/*  ✨ PARTÍCULAS DE FONDO                       */
+/* ============================================= */
+
 function createBioParticles() {
+   // Buscamos el contenedor de las partículas (solo existe en algunas páginas)
    const particleSystem = document.getElementById('particleSystem');
    if (!particleSystem) return;
    const particleCount = 40;
 
+   // Creamos 40 puntos con posición, retraso y velocidad al azar;
+   // el CSS (@keyframes bio-float) se encarga de moverlos
    for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'bio-particle';
@@ -13,25 +20,36 @@ function createBioParticles() {
    }
 }
 
-function initializeFeatures() {
-   const navItems = document.querySelectorAll('.nav-item');
-   const featurePanels = document.querySelectorAll('.feature-panel');
+/* ============================================= */
+/*  🎧 PESTAÑAS DEL PORTFOLIO                    */
+/* ============================================= */
 
-   navItems.forEach(item => {
-      item.addEventListener('click', () => {
-         const targetFeature = item.getAttribute('data-feature');
+function initializePortfolioTabs() {
+   // Los botones de creadores y los paneles con sus vídeos
+   const buttons = document.querySelectorAll('button.artist-btn');
+   const panels = document.querySelectorAll('.feature-panel');
+   if (buttons.length === 0) return; // Si esta página no tiene pestañas, no hacemos nada
 
-         navItems.forEach(nav => nav.classList.remove('active'));
-         featurePanels.forEach(panel => panel.classList.remove('active'));
+   buttons.forEach(button => {
+      button.addEventListener('click', () => {
+         // 1. Quitamos la clase "active" a todos los botones y paneles
+         buttons.forEach(b => b.classList.remove('active'));
+         panels.forEach(p => p.classList.remove('active'));
 
-         item.classList.add('active');
-         const targetPanel = document.getElementById(targetFeature);
+         // 2. Se la ponemos al botón pulsado y al panel que le corresponde
+         //    (el data-feature del botón coincide con el id del panel)
+         button.classList.add('active');
+         const targetPanel = document.getElementById(button.dataset.feature);
          if (targetPanel) {
             targetPanel.classList.add('active');
          }
       });
    });
 }
+
+/* ============================================= */
+/*  📩 FORMULARIO DE CONTACTO                    */
+/* ============================================= */
 
 function initializeContactForm() {
    // Buscamos el formulario, el hueco del aviso y el botón
@@ -71,8 +89,14 @@ function initializeContactForm() {
    });
 }
 
+/* ============================================= */
+/*  🚀 ARRANQUE                                  */
+/* ============================================= */
+
+// Cuando el HTML ya está cargado, ponemos en marcha cada parte.
+// Cada función comprueba si la página tiene lo que necesita.
 document.addEventListener('DOMContentLoaded', function () {
    createBioParticles();
-   initializeFeatures();
+   initializePortfolioTabs();
    initializeContactForm();
 });

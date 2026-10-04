@@ -24,6 +24,23 @@
 }
 
 /* ============================================= */
+/*  📱 MOBILE FIRST: CÓMO LEER ESTE ARCHIVO      */
+/* ============================================= */
+
+/*
+	Los estilos "normales" de cada bloque son los del MÓVIL.
+	Después, con @media (min-width: ...), vamos añadiendo
+	cambios para pantallas más grandes:
+
+	  - Móvil:   menos de 768px  (estilos base, sin @media)
+	  - Tablet:  desde 768px     @media (min-width: 768px)
+	  - Laptop:  desde 1024px    @media (min-width: 1024px)
+
+	Cada sección tiene sus @media justo debajo de sus reglas.
+	Todas las distribuciones usan Flexbox.
+*/
+
+/* ============================================= */
 /*  📐 LAYOUT GENERAL                            */
 /* ============================================= */
 
@@ -46,7 +63,6 @@ main {
 /* ============================================= */
 /*  ✨ FONDO Y EFECTOS VISUALES                  */
 /* ============================================= */
-
 
 .bio-bg {
 	position: fixed;
@@ -89,23 +105,29 @@ main {
 /*  🧭 NAVEGACIÓN                                */
 /* ============================================= */
 
+/* Móvil: el logo arriba y el menú debajo (columna) */
 nav {
 	position: fixed;
 	top: 0;
 	width: 100%;
-	padding: 20px 40px;
+	padding: 12px 16px;
 	background: rgba(10, 26, 10, 0.8);
 	backdrop-filter: blur(20px);
 	border-bottom: 1px solid rgba(0, 255, 136, 0.2);
 	z-index: 1000;
 }
 
+#navbar {
+	box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
 .nav-container {
 	max-width: 1400px;
 	margin: 0 auto;
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
 	align-items: center;
+	gap: 12px;
 }
 
 .logo {
@@ -127,6 +149,8 @@ nav {
 
 .nav-menu {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 	list-style: none;
 	gap: 8px;
 	background: rgba(255, 255, 255, 0.05);
@@ -138,35 +162,79 @@ nav {
 .nav-menu a {
 	text-decoration: none;
 	color: rgba(255, 255, 255, 0.7);
-	padding: 12px 24px;
+	padding: 8px 14px;
+	font-size: 0.9rem;
 	border-radius: 25px;
 	transition: all 0.4s ease;
 }
 
-.nav-menu a.active, .nav-menu a:hover {
+.nav-menu a.active,
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
 	color: var(--deep-forest);
 	background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
+}
+
+/* Tablet: el logo y el menú pasan a estar en la misma fila */
+@media (min-width: 768px) {
+	nav {
+		padding: 16px 24px;
+	}
+
+	.nav-container {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.nav-menu a {
+		padding: 10px 16px;
+		font-size: 0.95rem;
+	}
+}
+
+/* Laptop: más espacio en el menú */
+@media (min-width: 1024px) {
+	nav {
+		padding: 20px 40px;
+	}
+
+	.nav-menu a {
+		padding: 12px 24px;
+		font-size: 1rem;
+	}
 }
 
 /* ============================================= */
 /*  🏠 SECCIÓN HERO (INICIO)                     */
 /* ============================================= */
 
+/* Móvil: el texto y la esfera van uno debajo de otro */
 .hero {
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	padding: 100px 40px 40px;
+	padding: 140px 20px 40px;
 }
 
 .hero-content {
 	max-width: 1400px;
 	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 80px;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	gap: 40px;
+}
+
+.hero-text,
+.hero-visual {
+	width: 100%;
+	min-width: 0;
+}
+
+.hero-visual {
+	display: flex;
+	justify-content: center;
 }
 
 .hero-text h1 {
@@ -189,7 +257,28 @@ nav {
 
 .hero-buttons {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 20px;
+}
+
+@media (min-width: 768px) {
+	.hero {
+		padding: 100px 40px 40px;
+	}
+}
+
+/* Laptop: el texto a la izquierda y la esfera a la derecha (fila) */
+@media (min-width: 1024px) {
+	.hero-content {
+		flex-direction: row;
+		gap: 80px;
+	}
+
+	.hero-text,
+	.hero-visual {
+		flex: 1;
+		width: auto;
+	}
 }
 
 /* ============================================= */
@@ -216,9 +305,19 @@ nav {
 	border: 2px solid var(--primary-green);
 }
 
+.btn:hover,
+.btn:focus-visible {
+	transform: translateY(-3px);
+	box-shadow: 0 8px 24px var(--glow-green);
+}
+
+/* ============================================= */
+/*  🔮 ESFERA ANIMADA                            */
+/* ============================================= */
+
 .bio-sphere {
-	width: 400px;
-	height: 400px;
+	width: min(300px, 80vw);
+	height: min(300px, 80vw);
 	border-radius: 50%;
 	background: radial-gradient(circle, var(--glow-green) 0%, transparent 50%);
 	display: flex;
@@ -259,12 +358,27 @@ nav {
 	35%, 100% { opacity: 0; transform: translateY(-12px); }
 }
 
+@media (min-width: 768px) {
+	.bio-sphere {
+		width: 340px;
+		height: 340px;
+	}
+}
+
+@media (min-width: 1024px) {
+	.bio-sphere {
+		width: 400px;
+		height: 400px;
+	}
+}
+
 /* ============================================= */
 /*  📊 ESTADÍSTICAS                              */
 /* ============================================= */
 
+/* Móvil: una estadística debajo de otra */
 .stats {
-	padding: 80px 40px;
+	padding: 60px 20px;
 	background: rgba(0, 255, 136, 0.05);
 	border-top: 1px solid rgba(0, 255, 136, 0.2);
 	border-bottom: 1px solid rgba(0, 255, 136, 0.2);
@@ -273,16 +387,46 @@ nav {
 .stats-container {
 	max-width: 1400px;
 	margin: 0 auto;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-	gap: 60px;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 	text-align: center;
 }
 
-.stat-item h3 {
+.stat-number {
+	display: block;
 	font-family: 'Space Grotesk', sans-serif;
 	font-size: 3.5rem;
 	color: var(--primary-green);
+}
+
+/* Tablet: dos estadísticas por fila */
+@media (min-width: 768px) {
+	.stats {
+		padding: 80px 40px;
+	}
+
+	.stats-container {
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 40px 60px;
+	}
+
+	.stat-item {
+		flex: 1 1 calc(50% - 30px);
+	}
+}
+
+/* Laptop: las cuatro en la misma fila */
+@media (min-width: 1024px) {
+	.stats-container {
+		flex-wrap: nowrap;
+	}
+
+	.stat-item {
+		flex: 1;
+	}
 }
 
 /* ============================================= */
@@ -291,7 +435,7 @@ nav {
 
 .section-title {
 	font-family: 'Space Grotesk', sans-serif;
-	font-size: 3.5rem;
+	font-size: 2.2rem;
 	text-align: center;
 	margin-bottom: 80px;
 	background: linear-gradient(135deg, var(--primary-green), var(--accent-blue));
@@ -299,7 +443,12 @@ nav {
 	background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
- 
+
+@media (min-width: 768px) {
+	.section-title {
+		font-size: 3.5rem;
+	}
+}
 
 /* ========================================= */
 /*  🎧 PORTFOLIO & SECCIÓN DE CREADORES      */
@@ -323,11 +472,11 @@ nav {
 	-webkit-text-fill-color: transparent;
 }
 
+/* Móvil: el menú de creadores arriba y los vídeos debajo */
 .portfolio-container {
-	display: grid;
-	grid-template-columns: 320px 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 30px;
-	align-items: start;
 }
 
 .artist-nav {
@@ -359,7 +508,8 @@ a.artist-btn {
 	text-decoration: none;
 }
 
-.artist-btn:hover {
+.artist-btn:hover,
+.artist-btn:focus-visible {
 	background: rgba(0, 255, 136, 0.05);
 	border-color: rgba(0, 255, 136, 0.3);
 }
@@ -376,15 +526,20 @@ a.artist-btn {
 	margin-top: 2px;
 }
 
-.artist-info h4 {
+.artist-info {
+	display: block;
+}
+
+.artist-name {
+	display: block;
 	margin: 0 0 4px 0;
 	color: var(--primary-green);
 	font-size: 1rem;
 	font-family: 'Space Grotesk', sans-serif;
 }
 
-.artist-info p {
-	margin: 0;
+.artist-desc {
+	display: block;
 	font-size: 0.82rem;
 	color: rgba(255, 255, 255, 0.7);
 	line-height: 1.35;
@@ -450,21 +605,40 @@ a.artist-btn {
 	line-height: 1.6;
 }
 
+/* Tablet y laptop: el menú a la izquierda y los vídeos a la derecha (fila) */
+@media (min-width: 768px) {
+	.portfolio-container {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	.artist-nav {
+		flex: 0 0 320px;
+	}
+
+	.feature-display {
+		flex: 1;
+		min-width: 0;
+	}
+}
+
 /* ============================================= */
 /*  👤 SOBRE MÍ (BIOGRAFÍA)                      */
 /* ============================================= */
 
-.about, .contact {
-	padding: 120px 40px;
+/* Móvil: la imagen arriba y el texto debajo */
+.about,
+.contact {
+	padding: 140px 20px 60px;
 	max-width: 1400px;
 	margin: 0 auto;
 }
 
 .about-content {
-	display: grid;
-	grid-template-columns: 1fr 1.5fr;
-	gap: 60px;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
+	gap: 40px;
 }
 
 .about-visual {
@@ -511,6 +685,10 @@ a.artist-btn {
 	filter: drop-shadow(0 0 14px var(--glow-green));
 }
 
+.about-text {
+	width: 100%;
+}
+
 .about-text h2 {
 	font-family: 'Space Grotesk', sans-serif;
 	font-size: 2rem;
@@ -532,21 +710,57 @@ a.artist-btn {
 	font-size: 1.2rem;
 }
 
+@media (min-width: 768px) {
+	.about,
+	.contact {
+		padding: 140px 40px 80px;
+	}
+}
+
+/* Laptop: la imagen a la izquierda y el texto a la derecha (fila) */
+@media (min-width: 1024px) {
+	.about,
+	.contact {
+		padding-bottom: 120px;
+	}
+
+	.about-content {
+		flex-direction: row;
+		gap: 60px;
+	}
+
+	.about-visual {
+		flex: 1;
+	}
+
+	.about-text {
+		flex: 1.5;
+		width: auto;
+	}
+}
+
 /* ============================================= */
 /*  📩 CONTACTO Y FORMULARIO                     */
 /* ============================================= */
 
+/* Móvil: el formulario arriba y las redes debajo */
 .contact-container {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 80px;
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
 
 .contact-form {
 	background: rgba(255, 255, 255, 0.05);
 	border: 1px solid rgba(0, 255, 136, 0.2);
 	border-radius: 24px;
-	padding: 48px;
+	padding: 24px;
+}
+
+.contact-form .section-title {
+	text-align: left;
+	margin-bottom: 40px;
+	font-size: 2.5rem;
 }
 
 .form-group {
@@ -559,13 +773,21 @@ a.artist-btn {
 	margin-bottom: 12px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
 	width: 100%;
 	padding: 16px;
 	background: rgba(255, 255, 255, 0.08);
 	border: 2px solid rgba(0, 255, 136, 0.2);
 	border-radius: 12px;
 	color: white;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+	outline: none;
+	border-color: var(--primary-green);
+	box-shadow: 0 0 12px var(--glow-green);
 }
 
 .submit-btn {
@@ -577,6 +799,13 @@ a.artist-btn {
 	border-radius: 12px;
 	font-weight: 700;
 	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 24px var(--glow-green);
 }
 
 .submit-btn:disabled {
@@ -602,6 +831,26 @@ a.artist-btn {
 	color: #ff6b6b;
 }
 
+@media (min-width: 768px) {
+	.contact-form {
+		padding: 48px;
+	}
+}
+
+/* Laptop: el formulario a la izquierda y las redes a la derecha (fila) */
+@media (min-width: 1024px) {
+	.contact-container {
+		flex-direction: row;
+		gap: 80px;
+	}
+
+	.contact-form,
+	.contact-info {
+		flex: 1;
+		min-width: 0;
+	}
+}
+
 /* ============================================= */
 /*  🦶 PIE DE PÁGINA                             */
 /* ============================================= */
@@ -616,6 +865,10 @@ footer {
 /* ============================================= */
 /*  🌐 REDES SOCIALES                            */
 /* ============================================= */
+
+address {
+	font-style: normal;
+}
 
 .contact-info h2 {
 	font-family: 'Space Grotesk', sans-serif;
@@ -712,11 +965,17 @@ a.social-card:focus-visible {
 	margin-bottom: 20px;
 }
 
+/* Móvil: un sample por fila */
 .samples-grid {
 	list-style: none;
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+	display: flex;
+	flex-wrap: wrap;
 	gap: 24px;
+}
+
+.sample {
+	flex: 0 0 100%;
+	min-width: 0;
 }
 
 .sample img {
@@ -738,27 +997,16 @@ a.social-card:focus-visible {
 	width: 100%;
 }
 
-/* ============================================= */
-/*  📱 RESPONSIVE (MÓVIL)                        */
-/* ============================================= */
-
-@media (max-width: 768px) {
-	.hero-content, .contact-container, .portfolio-container, .about-content {
-		grid-template-columns: 1fr;
+/* Tablet: dos samples por fila */
+@media (min-width: 768px) {
+	.sample {
+		flex: 0 0 calc((100% - 24px) / 2);
 	}
+}
 
-	nav { padding: 12px 16px; }
-	.nav-container { flex-direction: column; gap: 12px; }
-	.nav-menu { flex-wrap: wrap; justify-content: center; }
-	.nav-menu a { padding: 8px 14px; font-size: 0.9rem; }
-
-	.hero { padding: 140px 20px 40px; }
-	.hero-content { gap: 40px; }
-	.hero-buttons { flex-wrap: wrap; }
-	.bio-sphere { width: min(300px, 80vw); height: min(300px, 80vw); }
-
-	.stats, .about, .contact { padding: 60px 20px; }
-	.contact-form { padding: 24px; }
-	.section-title { font-size: 2.2rem; }
-	.about-content { gap: 40px; }
+/* Laptop: tres samples por fila */
+@media (min-width: 1024px) {
+	.sample {
+		flex: 0 0 calc((100% - 48px) / 3);
+	}
 }

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contacta con Leo Frixi para encargar modelos de voz RVC o colaborar.">
     <title>Contacto | Leo Frixi's Shell</title>
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,16 +24,16 @@
                     <li><a href="../index.html" class="nav-link">Inicio</a></li>
                     <li><a href="portfolio.html" class="nav-link">Portfolio &amp; RVC</a></li>
                     <li><a href="biografia.html" class="nav-link">Sobre Mí</a></li>
-                    <li><a href="contacto.html" class="nav-link active">Contacto</a></li>
+                    <li><a href="contacto.html" class="nav-link active" aria-current="page">Contacto</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="contact" style="padding-top: 140px;">
+    <main class="contact">
         <div class="contact-container">
-            <div class="contact-form">
-                <h1 class="section-title" style="text-align: left; margin-bottom: 40px; font-size: 2.5rem;">Trabajemos Juntos</h1>
+            <section class="contact-form">
+                <h1 class="section-title">Trabajemos Juntos</h1>
                 <form id="contactForm" action="https://formspree.io/f/mrpbndrv" method="POST">
                     <div class="form-group">
                         <label for="name">Nombre / Creador</label>
@@ -50,12 +51,13 @@
                     <button type="submit" class="submit-btn">✉️ Enviar Mensaje</button>
                     <p id="formStatus" class="form-status" role="status" aria-live="polite"></p>
                 </form>
-            </div>
+            </section>
 
             <aside class="contact-info">
                 <h2>Contacto &amp; Redes</h2>
                 <p class="contact-intro">Escríbeme por el formulario o encuéntrame en mis redes.</p>
 
+                <address>
                 <ul class="social-list">
                     <li>
                         <a class="social-card" href="https://www.youtube.com/@carbonfiberjr" target="_blank" rel="noopener noreferrer">
@@ -82,12 +84,13 @@
                         </a>
                     </li>
                 </ul>
+                </address>
             </aside>
         </div>
     </main>
 
     <footer>
-        <p>© 2026 Leo Frixi's Shell. All rights reserved.</p>
+        <p><small>© 2026 Leo Frixi's Shell. All rights reserved.</small></p>
     </footer>
 
     <script src="../js/script.js"></script>
